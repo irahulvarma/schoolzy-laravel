@@ -229,4 +229,13 @@ return [
 
     ],
 
+    //Available Locales
+
+    'available_locales' => [
+        'English' => 'en',
+        'Kannada' => 'kn',
+        'Malayalam' => 'ml',
+        'Hindi' => 'hi'
+    ] 
+
 ];

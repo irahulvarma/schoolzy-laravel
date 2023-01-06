@@ -22,6 +22,7 @@
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">{{ config('app.name', 'Schoolzy') }}</span>
         </div>
+        @include('common.language')
     </nav>
 
     <main class="py-4">

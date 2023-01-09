@@ -13,15 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('static.homepage');
-});
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
-Route::get('/dashboard', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::get('/language/{locale}', function ($locale) {
     session()->put('locale', $locale);
     return redirect()->back();
 })->name('language');
+
+Route::get('/user-profile', 'DashboardController@editProfile')->name('user-profile');
+
+Route::post('/update-user-profile', 'DashboardController@updateProfile')->name('update-user-profile');

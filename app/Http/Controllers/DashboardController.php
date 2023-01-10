@@ -41,4 +41,11 @@ class DashboardController extends Controller
 
         return redirect()->route('user-profile');
     }
+
+    function users()
+    {
+        $users = User::all();
+
+        return view('user.all', ['users' => $users]);
+    }
 }

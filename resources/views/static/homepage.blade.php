@@ -20,7 +20,7 @@
                         </div>
                         <div class="form-group">
                             <label for="password" >{{ __('Password') }}:</label><br>
-                            <input type="text" name="password" id="password" class="form-control">
+                            <input type="password" name="password" id="password" class="form-control">
                             @error('password')
                                 <div class="alert alert-danger" role="alert">
                                     <strong>{{ $message }}</strong>

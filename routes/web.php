@@ -27,3 +27,5 @@ Route::get('/language/{locale}', function ($locale) {
 Route::get('/user-profile', 'DashboardController@editProfile')->name('user-profile');
 
 Route::post('/update-user-profile', 'DashboardController@updateProfile')->name('update-user-profile');
+
+Route::get('/users', 'DashboardController@users')->name('users');

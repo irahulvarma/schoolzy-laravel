@@ -31,7 +31,7 @@ class DashboardController extends Controller
 
     function updateProfile(Request $request)
     {
-        $user = User::find(Auth::id());
+        $user = Auth::user();
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
         $user->position = $request->input('position');

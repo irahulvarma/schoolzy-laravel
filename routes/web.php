@@ -24,8 +24,18 @@ Route::get('/language/{locale}', function ($locale) {
     return redirect()->back();
 })->name('language');
 
-Route::get('/user-profile', 'DashboardController@editProfile')->name('user-profile');
+Route::get('/my-profile', 'DashboardController@editMyProfile')->name('my-profile');
 
-Route::post('/update-user-profile', 'DashboardController@updateProfile')->name('update-user-profile');
+Route::post('/update-my-profile', 'DashboardController@updateMyProfile')->name('update-my-profile');
 
 Route::get('/users', 'DashboardController@users')->name('users');
+
+Route::get('/edit-user-profile/{id}', 'DashboardController@editUserProfile')->name('edit-user-profile');
+
+Route::post('/update-user-profile/{id}', 'DashboardController@updateUserProfile')->name('update-user-profile');
+
+Route::post('/update-user-role/{id}', 'DashboardController@updateUserRole')->name('update-user-role');
+
+Route::get('/add-user', 'DashboardController@addUserProfileForm')->name('add-user');
+
+Route::post('/create-user', 'DashboardController@createUser')->name('create-user');

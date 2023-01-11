@@ -45,7 +45,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('user-profile') }}">{{ __('My Profile') }}</a>
+                                <a class="dropdown-item" href="{{ route('my-profile') }}">{{ __('My Profile') }}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
@@ -68,11 +68,17 @@
                         <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                             <span class="fs-5 d-none d-sm-inline">{{ __('Menu') }}</span>
                         </a>
-                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">                                                        
+                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                            @if (Auth::user()->role == 'admin')
                             <li>
                                 <a href="{{ route('users') }}" class="nav-link px-0 align-middle">
                                     <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">{{ __('Users') }}</span></a>
-                            </li>                            
+                            </li>
+                            <li>
+                                <a href="{{ route('add-user') }}" class="nav-link px-0 align-middle">
+                                    <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">{{ __('Add User') }}</span></a>
+                            </li>
+                            @endif                            
                         </ul>
                     </div>
                 </div>

@@ -6,9 +6,14 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Edit Profile') }}</div>
-
+                @if (session('success'))
+                <div class="alert alert-success alert-block">
+                    <button type="button" class="close" data-dismiss="alert">x</button>	
+                        <strong>{{ session('success') }}</strong>
+                </div>
+                @endif
                 <div class="card-body">
-                    <form method="POST" action="{{ route('update-user-profile') }}">
+                    <form method="POST" action="{{ route('update-my-profile') }}">
                         @csrf
 
                         <div class="form-group row">

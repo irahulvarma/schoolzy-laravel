@@ -236,6 +236,12 @@ return [
         'Kannada' => 'kn',
         'Malayalam' => 'ml',
         'Hindi' => 'hi'
-    ] 
+    ], 
+
+    'roles' => [
+        'member',
+        'school-admin',
+        'admin'
+    ]
 
 ];

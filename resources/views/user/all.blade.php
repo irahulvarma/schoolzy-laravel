@@ -21,7 +21,7 @@
             <td>{{ $user->phone }}</td>
             <td>{{ $user->role }}</td>
             <td>
-                <a>Edit Role</a>
+                <a href="{{ route('edit-user-profile', ['id' => $user->id]) }}">Edit Profile</a>
             </td>
         </tr>
         @endforeach

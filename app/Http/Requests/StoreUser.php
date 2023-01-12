@@ -27,7 +27,11 @@ class StoreUser extends FormRequest
         return [
             'first_name' => "required|max:255|alpha",
             'last_name' => "required|max:255|alpha",
-            'email' => "required|email"
+            'email' => "sometimes|required|unique:users,email|email",
+            'password' => "sometimes|required|min:8",
+            'position' => "required",
+            'phone' => "required|numeric|digits:10",
+            'role' => "sometimes|required"
         ];
     }
 }

@@ -36,6 +36,8 @@ Route::post('/update-user-profile/{id}', 'DashboardController@updateUserProfile'
 
 Route::post('/update-user-role/{id}', 'DashboardController@updateUserRole')->name('update-user-role');
 
+Route::post('/update-user-email/{id}', 'DashboardController@updateUserEmail')->name('update-user-email');
+
 Route::get('/add-user', 'DashboardController@addUserProfileForm')->name('add-user');
 
 Route::post('/create-user', 'DashboardController@createUser')->name('create-user');

@@ -41,3 +41,15 @@ Route::post('/update-user-email/{id}', 'DashboardController@updateUserEmail')->n
 Route::get('/add-user', 'DashboardController@addUserProfileForm')->name('add-user');
 
 Route::post('/create-user', 'DashboardController@createUser')->name('create-user');
+
+Route::get('/add-school', 'SchoolController@addSchool')->name('add-school');
+
+Route::post('/create-school', 'SchoolController@createSchool')->name('create-school');
+
+Route::get('/add-board', 'BoardController@addBoard')->name('add-board');
+
+Route::post('/create-board', 'BoardController@createBoard')->name('create-board');
+
+Route::get('/board', 'BoardController@listBoard')->name('list-board');
+
+Route::get('/delete-board/{id}', 'BoardController@deleteBoard')->name('delete-board');

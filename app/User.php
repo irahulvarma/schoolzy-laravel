@@ -38,7 +38,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    function getFullNameAttribute() {
+    function getFullNameAttribute() 
+    {
         return ucfirst($this->first_name)." ".ucfirst($this->last_name);
+    }
+
+    function schoolCreator()
+    {
+        return $this->belongsTo('App\School', 'created_by');
+    }
+
+    function schoolUpdator()
+    {
+        return $this->belongsTo('App\School', 'updated_by');
     }
 }

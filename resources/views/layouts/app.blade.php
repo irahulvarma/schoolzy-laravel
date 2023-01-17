@@ -78,6 +78,18 @@
                                 <a href="{{ route('add-user') }}" class="nav-link px-0 align-middle">
                                     <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">{{ __('Add User') }}</span></a>
                             </li>
+                            <li>
+                                <a href="{{ route('add-school') }}" class="nav-link px-0 align-middle">
+                                    <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">{{ __('Add School') }}</span></a>
+                            </li>
+                            <li>
+                                <a href="{{ route('list-board') }}" class="nav-link px-0 align-middle">
+                                    <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">{{ __('List Board') }}</span></a>
+                            </li>
+                            <li>
+                                <a href="{{ route('add-board') }}" class="nav-link px-0 align-middle">
+                                    <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">{{ __('Add Board') }}</span></a>
+                            </li>
                             @endif                            
                         </ul>
                     </div>

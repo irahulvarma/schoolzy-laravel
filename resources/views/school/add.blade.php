@@ -47,8 +47,13 @@
                         <div class="form-group row">
                             <label for="board" class="col-md-4 col-form-label text-md-right">{{ __('Board') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="board" type="board" class="form-control @error('board') is-invalid @enderror" name="board" value="{{ old('board') }}" required autocomplete="board">
+                            <div class="col-md-6">                                
+                                <select id="board"  class="form-control @error('board') is-invalid @enderror" name="board" required autocomplete="board">
+                                    <option value="">Select a board</option>
+                                    @foreach ($boards as $board)
+                                        <option @if($board->id == old('board')) selected @endif value="{{ $board->id }}">{{ $board->name }}</option>
+                                    @endforeach
+                                </select>
 
                                 @error('board')
                                     <span class="invalid-feedback" role="alert">
@@ -62,7 +67,13 @@
                             <label for="medium" class="col-md-4 col-form-label text-md-right">{{ __('Medium') }}</label>
 
                             <div class="col-md-6">
-                                <input id="medium" type="text" class="form-control @error('medium') is-invalid @enderror" name="medium" value="{{ old('medium') }}" required autocomplete="medium" autofocus>
+                                
+                                <select id="medium"  class="form-control @error('medium') is-invalid @enderror" name="medium" required autocomplete="medium">
+                                    <option value="">Select a board</option>
+                                    @foreach (config('app.mediums') as $medium)
+                                        <option @if($medium == old('medium')) selected @endif value="{{ $medium }}">{{ $medium }}</option>
+                                    @endforeach
+                                </select>
 
                                 @error('medium')
                                     <span class="invalid-feedback" role="alert">

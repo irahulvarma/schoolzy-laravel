@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class StoreBoard extends FormRequest
+class StoreSchool extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,11 @@ class StoreBoard extends FormRequest
     public function rules()
     {
         return [
-            'board_name' => 'required|max:255|unique:App\Board,name'
+            'school_name' => "required|min:8|max:255",
+            'principal' => "required|min:8|max:255",
+            'board' => "required",
+            'medium' => "required",
+            'foundation_year' => "required|digits:4|integer|min:1600|max:".(date('Y')+1),
         ];
     }
 }

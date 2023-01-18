@@ -45,11 +45,11 @@ class User extends Authenticatable
 
     function schoolCreator()
     {
-        return $this->belongsTo('App\School', 'created_by');
+        return $this->hasMany('App\School', 'created_by');
     }
 
     function schoolUpdator()
     {
-        return $this->belongsTo('App\School', 'updated_by');
+        return $this->hasMany('App\School', 'updated_by');
     }
 }

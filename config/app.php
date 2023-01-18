@@ -242,6 +242,13 @@ return [
         'member',
         'school-admin',
         'admin'
+    ],
+
+    'mediums' => [
+        'English',
+        'Hindi',
+        'Kannada',
+        'Malayalam'
     ]
 
 ];

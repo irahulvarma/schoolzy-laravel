@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class School extends Model
 {
     //
+    protected $table = 'school';
+
     protected $fillable = [
         'school_name',
         'principal',
@@ -20,12 +22,12 @@ class School extends Model
 
     function creator()
     {
-        return $this->hasOne('App\User', 'created_by');
+        return $this->belongsTo('App\User', 'created_by');
     }
 
     function updator()
     {
-        return $this->hasOne('App\User', 'updated_by');
+        return $this->belongsTo('App\User', 'updated_by');
     }
 
 

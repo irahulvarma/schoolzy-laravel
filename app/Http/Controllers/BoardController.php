@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Board;
+use App\Http\Requests\StoreBoard;
 
 class BoardController extends Controller
 {
@@ -19,11 +20,9 @@ class BoardController extends Controller
         return view('board.add');
     }
 
-    function createBoard(Request $request)
+    function createBoard(StoreBoard $request)
     {
-        $request->validate([
-            'board_name' => 'required|alpha|max:255'
-        ]);
+        $request->validated();
 
         $board = new Board;
         $board->name = $request->input('board_name');

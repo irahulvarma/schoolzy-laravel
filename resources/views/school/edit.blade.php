@@ -12,6 +12,12 @@
                         <strong>{{ session('success') }}</strong>
                 </div>
                 @endif
+                @error('id')
+                <div class="alert alert-warning alert-block">
+                    <button type="button" class="close" data-dismiss="alert">x</button>	
+                        <strong>{{ $message }}</strong>
+                </div>
+                @enderror
                 <div class="card-body">
                     <form method="POST" action="{{ route('update-school', ['id' => $school->id ]) }}">
                         @csrf

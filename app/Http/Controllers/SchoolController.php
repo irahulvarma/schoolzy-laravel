@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Board;
 use App\Http\Requests\StoreSchool;
+use App\Http\Requests\EditSchool;
 use Illuminate\Support\Facades\Auth;
 use App\School;
 
@@ -47,8 +48,9 @@ class SchoolController extends Controller
         return redirect('add-school')->with('success', 'School inserted successfully');
     }
 
-    function editSchool($id, StoreSchool $request)
+    function editSchool($id, EditSchool $request)
     {
+        $request->validated();
 
         $school = School::find($id);
         $boards = Board::all();

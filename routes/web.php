@@ -46,6 +46,12 @@ Route::get('/add-school', 'SchoolController@addSchool')->name('add-school');
 
 Route::post('/create-school', 'SchoolController@createSchool')->name('create-school');
 
+Route::get('/school', 'SchoolController@listSchool')->name('list-school');
+
+Route::get('/edit-school/{id}', 'SchoolController@editSchool')->name('edit-school');
+
+Route::post('/update-school/{id}', 'SchoolController@updateSchool')->name('update-school');
+
 Route::get('/add-board', 'BoardController@addBoard')->name('add-board');
 
 Route::post('/create-board', 'BoardController@createBoard')->name('create-board');

@@ -20,6 +20,11 @@ class School extends Model
         'updated_by'        
     ];
 
+    function board()
+    {
+        return $this->belongsTo('App\Board');
+    }
+
     function creator()
     {
         return $this->belongsTo('App\User', 'created_by');

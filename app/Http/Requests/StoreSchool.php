@@ -25,11 +25,23 @@ class StoreSchool extends FormRequest
     public function rules()
     {
         return [
-            'school_name' => "required|min:8|max:255",
-            'principal' => "required|min:8|max:255",
-            'board' => "required",
-            'medium' => "required",
-            'foundation_year' => "required|digits:4|integer|min:1600|max:".(date('Y')+1),
+            'id' => "sometimes|required|integer|exists:school",
+            'school_name' => "sometimes|required|min:8|max:255",
+            'principal' => "sometimes|required|min:8|max:255",
+            'board' => "sometimes|required",
+            'medium' => "sometimes|required",
+            'foundation_year' => "sometimes|required|digits:4|integer|min:1600|max:".(date('Y')+1),
         ];
+    }
+
+    public function all($keys = null)
+    {
+        $data = parent::all($keys);
+
+        if ($this->route('id') != null) {
+            $data['id'] = $this->route('id');
+        }
+
+        return $data;
     }
 }

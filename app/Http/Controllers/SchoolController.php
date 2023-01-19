@@ -16,6 +16,13 @@ class SchoolController extends Controller
         $this->middleware('auth');
     }
 
+    function listSchool()
+    {
+        $schools = School::all();
+
+        return view('school.list',  ['schools' => $schools]);
+    }
+
     function addSchool()
     {
         $boards = Board::all();
@@ -30,7 +37,7 @@ class SchoolController extends Controller
         $school = new School;
         $school->school_name = $request->input('school_name');
         $school->principal = $request->input('principal');
-        $school->board = $request->input('board');
+        $school->board_id = $request->input('board');
         $school->medium = $request->input('medium');
         $school->foundation_year = $request->input('foundation_year');        
         $school->creator()->associate($current_user);
@@ -38,5 +45,31 @@ class SchoolController extends Controller
         $school->save();
 
         return redirect('add-school')->with('success', 'School inserted successfully');
+    }
+
+    function editSchool($id, StoreSchool $request)
+    {
+
+        $school = School::find($id);
+        $boards = Board::all();
+
+        return view('school.edit', ['school' => $school, 'boards' => $boards]);
+    }
+
+    function updateSchool($id, StoreSchool $request)
+    {
+        $request->validated();
+
+        $current_user = Auth::user();
+        $school = School::find($id);
+        $school->school_name = $request->input('school_name');
+        $school->principal = $request->input('principal');
+        $school->board_id = $request->input('board');
+        $school->medium = $request->input('medium');
+        $school->foundation_year = $request->input('foundation_year');        
+        $school->creator()->associate($current_user);
+        $school->save();
+
+        return redirect()->route('edit-school',['id' => $school->id])->with('success', 'School updated successfully');
     }
 }

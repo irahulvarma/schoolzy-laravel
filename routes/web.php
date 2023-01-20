@@ -24,23 +24,23 @@ Route::get('/language/{locale}', function ($locale) {
     return redirect()->back();
 })->name('language');
 
-Route::get('/my-profile', 'DashboardController@editMyProfile')->name('my-profile');
+Route::get('/my-profile', 'UserController@editMyProfile')->name('my-profile');
 
-Route::post('/update-my-profile', 'DashboardController@updateMyProfile')->name('update-my-profile');
+Route::post('/update-my-profile', 'UserController@updateMyProfile')->name('update-my-profile');
 
-Route::get('/users', 'DashboardController@users')->name('users');
+Route::get('/users', 'UserController@users')->name('users');
 
-Route::get('/edit-user-profile/{id}', 'DashboardController@editUserProfile')->name('edit-user-profile');
+Route::get('/edit-user-profile/{id}', 'UserController@editUserProfile')->name('edit-user-profile');
 
-Route::post('/update-user-profile/{id}', 'DashboardController@updateUserProfile')->name('update-user-profile');
+Route::post('/update-user-profile/{id}', 'UserController@updateUserProfile')->name('update-user-profile');
 
-Route::post('/update-user-role/{id}', 'DashboardController@updateUserRole')->name('update-user-role');
+Route::post('/update-user-role/{id}', 'UserController@updateUserRole')->name('update-user-role');
 
-Route::post('/update-user-email/{id}', 'DashboardController@updateUserEmail')->name('update-user-email');
+Route::post('/update-user-email/{id}', 'UserController@updateUserEmail')->name('update-user-email');
 
-Route::get('/add-user', 'DashboardController@addUserProfileForm')->name('add-user');
+Route::get('/add-user', 'UserController@addUserProfileForm')->name('add-user');
 
-Route::post('/create-user', 'DashboardController@createUser')->name('create-user');
+Route::post('/create-user', 'UserController@createUser')->name('create-user');
 
 Route::get('/add-school', 'SchoolController@addSchool')->name('add-school');
 

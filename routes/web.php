@@ -38,6 +38,8 @@ Route::post('/update-user-role/{id}', 'UserController@updateUserRole')->name('up
 
 Route::post('/update-user-email/{id}', 'UserController@updateUserEmail')->name('update-user-email');
 
+Route::post('/update-user-school/{id}', 'UserController@updateUserSchool')->name('update-user-school');
+
 Route::get('/add-user', 'UserController@addUserProfileForm')->name('add-user');
 
 Route::post('/create-user', 'UserController@createUser')->name('create-user');

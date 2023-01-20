@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\School', 'updated_by');
     }
+
+    function school()
+    {
+        return $this->belongsTo('App\School');
+    }
 }

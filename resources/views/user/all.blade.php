@@ -9,6 +9,7 @@
             <th class="th-sm">Position</th>
             <th class="th-sm">Phone</th>
             <th class="th-sm">Role</th>
+            <th class="th-sm">School</th>
             <th class="th-sm"></th>
         </tr>
     </thead>
@@ -20,6 +21,7 @@
             <td>{{ $user->position }}</td>
             <td>{{ $user->phone }}</td>
             <td>{{ $user->role }}</td>
+            <td>@isset($user->school->school_name){{ $user->school->school_name }}@endisset</td>
             <td>
                 <a href="{{ route('edit-user-profile', ['id' => $user->id]) }}">Edit Profile</a>
             </td>

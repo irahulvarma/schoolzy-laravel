@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use App\School;
 use App\Http\Requests\StoreUser;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
@@ -47,7 +48,13 @@ class UserController extends Controller
     function editUserProfile($user_id)
     {
         $user = User::find($user_id);
-        return view('user.edit-user-profile', ['user' => $user]);
+
+        $schools = null;
+        if ($user->role == 'school-admin') {
+            $schools = School::all();
+        }
+
+        return view('user.edit-user-profile', ['user' => $user, 'schools' => $schools]);
     }
 
     function updateUserProfile($user_id, StoreUser $request)
@@ -96,6 +103,15 @@ class UserController extends Controller
         $user->save();
 
         return redirect()->route("edit-user-profile", ['id' => $user_id])->with('success', 'Email saved successfully');
+    }
+
+    function updateUserSchool($user_id, Request $request)
+    {
+        $user = User::find($user_id);
+        $user->school_id = $request->input('school');
+        $user->save();
+
+        return redirect()->route("edit-user-profile", ['id' => $user_id])->with('success', 'School saved successfully');
     }
 
     function addUserProfileForm()

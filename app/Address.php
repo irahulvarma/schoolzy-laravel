@@ -8,4 +8,9 @@ class Address extends Model
 {
     //
     protected $table = 'address';
+
+    function addressable()
+    {
+        return $this->morphTo();
+    }
 }

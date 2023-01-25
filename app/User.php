@@ -57,4 +57,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\School');
     }
+
+    function address()
+    {
+        return $this->morphOne('App\Address', 'addressable');
+    }
 }

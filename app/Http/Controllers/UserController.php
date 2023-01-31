@@ -12,10 +12,12 @@ use App\Http\Requests\StoreUser;
 use App\Http\Requests\RequestAddress;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
+use App\Traits\AddressTrait;
 
 class UserController extends Controller
 {
     //
+    use AddressTrait;
     function __construct()
     {
         $this->middleware('auth');
@@ -120,21 +122,10 @@ class UserController extends Controller
     {
 
         $validated = $request->validated();
-        
+
         $user = User::find($user_id);
-        $current_user = Auth::user();
-
-        $address = $user->address  ?? new Address;
-        $address->flat_no = $request->input('flat_no');
-        $address->line_1 = $request->input('line_1');
-        $address->line_2 = $request->input('line_2');
-        $address->city = $request->input('city');
-        $address->state = $request->input('state');
-        $address->pincode = $request->input('pincode');
-        $address->created_by = $current_user->id;
-        $address->updated_by = $current_user->id;
-
-        $user->address()->save($address);
+        
+        $this->storeAddress($request, $user);
 
         return redirect()->route("edit-user-profile", ['id' => $user_id])->with('success', 'Address saved successfully');
         

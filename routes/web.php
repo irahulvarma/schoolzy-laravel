@@ -56,6 +56,8 @@ Route::get('/edit-school/{id}', 'SchoolController@editSchool')->name('edit-schoo
 
 Route::post('/update-school/{id}', 'SchoolController@updateSchool')->name('update-school');
 
+Route::post('/update-school-address/{id}', 'SchoolController@updateSchoolAddress')->name('update-school-address');
+
 Route::get('/add-board', 'BoardController@addBoard')->name('add-board');
 
 Route::post('/create-board', 'BoardController@createBoard')->name('create-board');

@@ -35,5 +35,9 @@ class School extends Model
         return $this->belongsTo('App\User', 'updated_by');
     }
 
+    function address()
+    {
+        return $this->morphOne('App\Address', 'addressable');
+    }
 
 }

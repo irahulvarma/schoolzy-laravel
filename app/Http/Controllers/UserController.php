@@ -9,6 +9,7 @@ use App\User;
 use App\School;
 use App\Address;
 use App\Http\Requests\StoreUser;
+use App\Http\Requests\RequestAddress;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 
@@ -115,8 +116,11 @@ class UserController extends Controller
         return redirect()->route("edit-user-profile", ['id' => $user_id])->with('success', 'School saved successfully');
     }
 
-    function updateUserAddress($user_id, Request $request)
+    function updateUserAddress($user_id, RequestAddress $request)
     {
+
+        $validated = $request->validated();
+        
         $user = User::find($user_id);
         $current_user = Auth::user();
 

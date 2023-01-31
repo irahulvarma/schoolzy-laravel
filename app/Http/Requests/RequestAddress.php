@@ -27,6 +27,10 @@ class RequestAddress extends FormRequest
         return [
             //
             'flat_no' => 'required|max:255',
+            'line_1' => 'required|max:255',
+            'city' => 'required|max:255',
+            'state' => 'required|max:255',
+            'pincode' => 'required|numeric'
         ];
     }
 }
